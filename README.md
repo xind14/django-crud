@@ -18,9 +18,9 @@ Build 1.0 Feature Tasks
 
 1. Create web site in Django with 2 pages: snack list, snack detail
 2. Create a model and add to admin
-3. Add previous urls and views to project and app in addtion to create/update/delete
+3. Add previous urls and views to project and app in addition to create/update/delete
 4. Add additional templates to support all views
-4. Write tests using testcase
+5. Write tests using testcase to test all views and model
 
 
 ### How to Initialize/Run Application
