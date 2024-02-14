@@ -11,7 +11,7 @@ class SnackTests(TestCase):
             username="tester", email="tester@email.com", password="pass"
         )
 
-        self.snack = Snack.objects.create(name="pizza", description='type of snack', purchaser=self.user)
+        self.snack = Snack.objects.create(name="pizza", description='type of snack', purchaser=self.user, image_url='https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg')
 
     def test_string_representation(self):
         self.assertEqual(str(self.snack), "pizza")
@@ -42,6 +42,7 @@ class SnackTests(TestCase):
                 "name": "pizza",
                 "description": "type of snack",
                 "purchaser": self.user.id,
+                "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg"
             },
             follow=True,
         )
@@ -52,7 +53,7 @@ class SnackTests(TestCase):
     def test_snack_update_view_redirect(self):
         response = self.client.post(
             reverse("snack_update", args="1"),
-            {"name": "Updated name", "description": 'type of meal', "purchaser": self.user.id},
+            {"name": "Updated name", "description": 'type of meal', "purchaser": self.user.id, "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg"},
         )
 
         self.assertRedirects(
@@ -62,7 +63,7 @@ class SnackTests(TestCase):
     def test_snack_update_bad_url(self):
         response = self.client.post(
             reverse("snack_update", args="9"),
-            {"name": "Updated name", "description": 'type of meal', "purchaser": self.user.id},
+            {"name": "Updated name", "description": 'type of meal', "purchaser": self.user.id, "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg"},
         )
 
         self.assertEqual(response.status_code, 404)

@@ -27,7 +27,7 @@ class SnackDeleteView(DeleteView):
 class SnackUpdateView(UpdateView):
   template_name = 'snack_update.html'
   model = Snack  
-  fields=['name','purchaser','description']
+  fields='__all__'
 
 
 # model admin steps
