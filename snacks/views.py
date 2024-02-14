@@ -17,8 +17,7 @@ class SnackDetailView(DetailView):
 class SnackCreateView(CreateView):
   template_name = 'snack_create.html'
   model = Snack  
-  # fields ='__all__'
-  fields='name','purchaser','description'
+  fields=['name','purchaser','description']
 
 class SnackDeleteView(DeleteView):
   template_name = 'snack_delete.html'
@@ -28,7 +27,8 @@ class SnackDeleteView(DeleteView):
 class SnackUpdateView(UpdateView):
   template_name = 'snack_update.html'
   model = Snack  
-  fields='__all__'
+  fields=['name','purchaser','description']
+
 
 # model admin steps
   # python manage.py createsuperuser

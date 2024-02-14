@@ -11,15 +11,15 @@ class SnackTests(TestCase):
             username="tester", email="tester@email.com", password="pass"
         )
 
-        self.snack = Snack.objects.create(name="pizza", rating=1, reviewer=self.user)
+        self.snack = Snack.objects.create(name="pizza", description='type of snack', purchaser=self.user)
 
     def test_string_representation(self):
         self.assertEqual(str(self.snack), "pizza")
 
     def test_snack_content(self):
         self.assertEqual(f"{self.snack.name}", "pizza")
-        self.assertEqual(f"{self.snack.reviewer}", "tester")
-        self.assertEqual(self.snack.rating, 1)
+        self.assertEqual(f"{self.snack.purchaser}", "tester")
+        self.assertEqual(self.snack.description, 'type of snack')
 
     def test_snack_list_view(self):
         response = self.client.get(reverse("snack_list"))
@@ -41,7 +41,7 @@ class SnackTests(TestCase):
             {
                 "name": "pizza",
                 "description": "type of snack",
-                "Purchaser": self.user.id,
+                "purchaser": self.user.id,
             },
             follow=True,
         )
@@ -62,7 +62,7 @@ class SnackTests(TestCase):
     def test_snack_update_bad_url(self):
         response = self.client.post(
             reverse("snack_update", args="9"),
-            {"name": "Updated name", "description": 'type of meal', "reviewer": self.user.id},
+            {"name": "Updated name", "description": 'type of meal', "purchaser": self.user.id},
         )
 
         self.assertEqual(response.status_code, 404)
