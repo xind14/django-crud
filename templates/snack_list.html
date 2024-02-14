@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+  <div class="w-1/2 mx-auto space-y-8 mb-6">
+
+    <h1 class="text-4xl text-green-800 text-center items-center">List of Snacks</h1>
+
+    {% for snack in snacks %}
+
+      <div class="bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 text-center">
+        <a href="{% url 'snack_detail' snack.pk %}" class="mb-2 text-2xl font-bold ">
+          {{snack.name}}
+        </a>
+            <div class="p-5">
+          <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Purchaser: {{snack.purchaser}}</h3>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Description: {{snack.description}}</p>
+        </div>
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+{% endblock content %}
+
+
+
+
+

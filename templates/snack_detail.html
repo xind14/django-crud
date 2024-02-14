@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+  <div class="w-1/2 mx-auto space-y-8 text-center">
+
+
+      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 text-center">
+        <img class="rounded-t-lg" src="{{ snack.image_url }}" alt=""/>
+        <div class="p-5">
+          <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ snack.name }}</h3>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Purchaser: {{ snack.purchaser }}</p>
+
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Description: {{ snack.description }}</p>
+        
+        </div>
+      </div>
+
+
+  </div>
+
+{% endblock content %}
