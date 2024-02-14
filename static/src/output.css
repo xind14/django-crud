@@ -612,9 +612,18 @@ video {
   display: block;
 }
 
+.inline-block{
+  display: inline-block;
+}
 .flex {
   display: flex;
   justify-content: center;
+}
+
+.flex-2{
+  display: flex;
+  justify-content: space-around;
+
 }
 
 .h-64 {
